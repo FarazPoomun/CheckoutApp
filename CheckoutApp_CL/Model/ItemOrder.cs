@@ -1,6 +1,6 @@
 ﻿namespace CheckoutApp_CL.Model
 {
-    internal class ItemOrder
+    public class ItemOrder
     {
         public int ItemOrderId { get; set; }
         public int TotalPrice { get; set; }

@@ -35,7 +35,7 @@ namespace CheckoutApp_CL.DAL
             return result;
         }
 
-        internal void SaveNewOrder(ItemOrder newOrder)
+        public void SaveNewOrder(ItemOrder newOrder)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -48,12 +48,12 @@ namespace CheckoutApp_CL.DAL
             adapter.Dispose();
         }
 
-        internal void UpdateInventoryCount(List<InventoryItem> updatedList)
+        public void UpdateInventoryCount(List<InventoryItem> updatedList)
         {
             SqlCommand command;
             var sql = string.Empty;
 
-            foreach(var item in updatedList)
+            foreach (var item in updatedList)
             {
                 sql += $@"Update InventoryItem 
                           Set CountInStock =  {item.CountInStock}

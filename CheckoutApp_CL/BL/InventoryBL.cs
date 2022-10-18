@@ -8,7 +8,7 @@ namespace CheckoutApp_CL.BL
 {
     public class InventoryBL
     {
-        readonly InventoryDAL dal;
+        readonly IInventoryDAL _dal;
         readonly Dictionary<int, int> basket = new Dictionary<int, int>(); //Stores Id of item + Count
 
         public List<InventoryItem> Items { get; set; }
