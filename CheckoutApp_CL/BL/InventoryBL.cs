@@ -8,15 +8,15 @@ namespace CheckoutApp_CL.BL
 {
     public class InventoryBL
     {
-        readonly IInventoryDAL _dal;
-        readonly Dictionary<int, int> basket = new Dictionary<int, int>(); //Stores Id of item + Count
+        readonly InventoryDAL _dal;
+        public readonly Dictionary<int, int> basket = new Dictionary<int, int>(); //Stores Id of item + Count
 
         public List<InventoryItem> Items { get; set; }
 
         public InventoryBL()
         {
-            dal = new InventoryDAL();
-            Items = dal.GetInventoryItems();
+            _dal = new InventoryDAL();
+            Items = _dal.GetInventoryItems();
         }
 
         public void AddToBasket(int id)
@@ -46,7 +46,7 @@ namespace CheckoutApp_CL.BL
             }
 
             UpdateInventoryCount();
-            dal.SaveNewOrder(newOrder);
+            _dal.SaveNewOrder(newOrder);
 
             return newOrder.TotalPrice;
         }
@@ -67,7 +67,7 @@ namespace CheckoutApp_CL.BL
                 updatedList.Add(item);
             }
 
-            dal.UpdateInventoryCount(updatedList);
+            _dal.UpdateInventoryCount(updatedList);
         }
     }
 }
