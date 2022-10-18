@@ -34,8 +34,8 @@ namespace CheckoutApp
                 bl.AddToBasket(selection);
             }
             
-            bl.CheckoutItems();
-            Console.WriteLine("Order has been placed.");
+            var totalPrice = bl.CheckoutItems();
+            Console.WriteLine($"Order has been placed. Cost of total items: ${totalPrice}");
         }
     }
 }

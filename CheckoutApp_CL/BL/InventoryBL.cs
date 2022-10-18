@@ -32,7 +32,7 @@ namespace CheckoutApp_CL.BL
             basket[id]++;
         }
 
-        public void CheckoutItems()
+        public int CheckoutItems()
         {
             var newOrder = new ItemOrder();
 
@@ -47,6 +47,8 @@ namespace CheckoutApp_CL.BL
 
             UpdateInventoryCount();
             dal.SaveNewOrder(newOrder);
+
+            return newOrder.TotalPrice;
         }
 
         private void UpdateInventoryCount()
